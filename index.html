@@ -23,29 +23,31 @@
     d3.csv("numofstartups.csv", function(error, indata) {
 
       var dataset = {};
+      var colorSet = {};
 
       var onlyValues = indata.map(function(obj){ return obj["Freq"]; });
       var minValue = Math.min.apply(null, onlyValues),
             maxValue = Math.max.apply(null, onlyValues);
 
-      var paletteScale = d3.scale.linear()
+      var paletteScale = d3.scale.log()
         .domain([minValue,maxValue])
         .range(["#EFEFFF","#02386F"]);
 
         indata.forEach(function(item){ //
         // item example value ["USA", 70]
-        var iso = item["state_code"],
+          var iso = item["state_code"],
                 value = item["Freq"];
-        dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
-    });
+          dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+          colorSet[paletteScale(value)] = paletteScale(value);
+        });
 
-        console.log(dataset["NY"].fillKey);
+      
 
         var map = new Datamap({
           element: document.getElementById('container'),
           scope: 'usa',
-          fills: { defaultFill: '#F5F5F5' },
-          data:dataset,
+          fills: colorSet,
+          data: dataset,
           geographyConfig: {
             borderColor: '#DEDEDE',
             highlightBorderWidth: 2,
