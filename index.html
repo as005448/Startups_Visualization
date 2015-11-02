@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+
+    </head>
+
+
+    <body>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
+    
+    <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
+    <script>
+      var map = new Datamap({
+        element: document.getElementById('container'),
+        scope: 'usa',
+        fills: {
+            HIGH: '#afafaf',
+            LOW: '#123456',
+            MEDIUM: 'blue',
+            UNKNOWN: 'rgb(0,0,0)',
+            defaultFill: 'green'
+        },
+        data: {
+            GA: {
+                fillKey: 'LOW',
+                numberOfThings: 2002
+            },
+            CA: {
+                fillKey: 'MEDIUM',
+                numberOfThings: 10381
+            },
+            NY: {
+                fillKey: 'HIGH',
+                numberOfThings: 10381
+            },
+            IL: {
+                fillKey: 'HIGH',
+                numberOfThings: 10381
+            }
+        }
+    });
+    </script>
+
+    </body>
+</html>
