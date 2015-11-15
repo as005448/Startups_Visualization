@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <title>D3 Test</title>
-        
+          <link rel="stylesheet" href="css/style.css">
 
     </head>
 
@@ -30,29 +30,16 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
     
+    <div id = "timeSilder">
+        <label for="nRadius" 
+         style="display: inline-block; width: 240px; text-align: right">
+         Found from <span id="nRadius-value">1990</span>
+        </label>
+        <input type="range" value = "1990" min="1990" max="2015" id="nRadius">
+    </div>
+
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
     <script>
-
-    // var margin = {top: 40, right: 20, bottom: 20, left: 20};
-    // var width = 960 - margin.left - margin.right;
-    // var height = 600 - margin.top - margin.bottom;
-
-    // var color = d3.scale.threshold()
-    //                 .domain([15,85,250,1000,3000,5000,10000])
-    //                 .range(["#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c",
-    //                     "#bd0026", "#800026"]);
-
-    // var x = d3.scale.log()
-    //                 .domain([0,12000])
-    //                 .range([0,240]);
-
-    // var xAxis = d3.svg.axis()
-    //                 .scale(x)
-    //                 .orient("bottom")
-    //                 .tickSize(13)
-    //                 .tickValues(color.domain());
-
-    
 
     d3.csv("numofstartups.csv", function(error, indata) {
 
@@ -68,8 +55,11 @@
             .domain([minValue,maxValue])
             .range(["#feb24c","#800026"]);
 
-       
-
+       //time slide bar on call
+       d3.select("#nRadius").on("input", function() {
+         d3.select("#nRadius-value").text(+this.value);
+        });
+        
 
         indata.forEach(function(item){ //
         // item example value ["USA", 70]
