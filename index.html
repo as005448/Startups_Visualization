@@ -41,12 +41,24 @@
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
     <script>
 
-    d3.csv("numofstartups.csv", function(error, indata) {
+    d3.csv("company2.csv", function(error, indata) {
 
         var dataset = {};
         var colorSet = {};
 
-        var onlyValues = indata.map(function(obj){ return obj.Freq; });
+        
+
+       //time slide bar on call
+       d3.select("#nRadius").on("input", function() {
+         d3.select("#nRadius-value").text(+this.value);
+        });
+        
+        //manipulate data
+        indata=d3.nest()
+        .key(function(d) {return d.state_code;})
+        .entries(indata);
+
+        var onlyValues = indata.map(function(obj){ return obj.values.length; });
         
         var minValue = Math.min.apply(null, onlyValues),
             maxValue = Math.max.apply(null, onlyValues);
@@ -55,16 +67,11 @@
             .domain([minValue,maxValue])
             .range(["#feb24c","#800026"]);
 
-       //time slide bar on call
-       d3.select("#nRadius").on("input", function() {
-         d3.select("#nRadius-value").text(+this.value);
-        });
-        
 
         indata.forEach(function(item){ //
         // item example value ["USA", 70]
-            var iso = item.state_code,
-                value = item.Freq;
+            var iso = item.key,
+                value = item.values.length;
             dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
             colorSet[paletteScale(value)] = paletteScale(value);
         });     
