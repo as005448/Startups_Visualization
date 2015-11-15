@@ -2,6 +2,9 @@
 <html lang="en">
 
 
+
+
+
     <head>
         <meta charset="utf-8">
         <title>D3 Test</title>
@@ -9,7 +12,16 @@
 
     </head>
 
-    
+    <style>
+        .subunit-label {
+        fill: #777;
+        fill-opacity: .5;
+        font-size: 20px;
+        font-weight: 300;
+        text-anchor: middle;
+        }
+    </style>
+
 
 
     <body>
@@ -20,55 +32,84 @@
     
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
     <script>
+
+    // var margin = {top: 40, right: 20, bottom: 20, left: 20};
+    // var width = 960 - margin.left - margin.right;
+    // var height = 600 - margin.top - margin.bottom;
+
+    // var color = d3.scale.threshold()
+    //                 .domain([15,85,250,1000,3000,5000,10000])
+    //                 .range(["#feb24c", "#fd8d3c", "#fc4e2a", "#e31a1c",
+    //                     "#bd0026", "#800026"]);
+
+    // var x = d3.scale.log()
+    //                 .domain([0,12000])
+    //                 .range([0,240]);
+
+    // var xAxis = d3.svg.axis()
+    //                 .scale(x)
+    //                 .orient("bottom")
+    //                 .tickSize(13)
+    //                 .tickValues(color.domain());
+
+    
+
     d3.csv("numofstartups.csv", function(error, indata) {
 
-      var dataset = {};
-      var colorSet = {};
+        var dataset = {};
+        var colorSet = {};
 
-      var onlyValues = indata.map(function(obj){ return obj["Freq"]; });
-      var minValue = Math.min.apply(null, onlyValues),
+        var onlyValues = indata.map(function(obj){ return obj.Freq; });
+        
+        var minValue = Math.min.apply(null, onlyValues),
             maxValue = Math.max.apply(null, onlyValues);
 
-      var paletteScale = d3.scale.log()
-        .domain([minValue,maxValue])
-        .range(["#EFEFFF","#02386F"]);
+        var paletteScale = d3.scale.log()
+            .domain([minValue,maxValue])
+            .range(["#feb24c","#800026"]);
+
+       
+
 
         indata.forEach(function(item){ //
         // item example value ["USA", 70]
-          var iso = item["state_code"],
-                value = item["Freq"];
-          dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
-          colorSet[paletteScale(value)] = paletteScale(value);
-        });
-
-      
+            var iso = item.state_code,
+                value = item.Freq;
+            dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+            colorSet[paletteScale(value)] = paletteScale(value);
+        });     
 
         var map = new Datamap({
-          element: document.getElementById('container'),
-          scope: 'usa',
-          fills: colorSet,
-          data: dataset,
-          geographyConfig: {
-            borderColor: '#DEDEDE',
-            highlightBorderWidth: 2,
-            // don't change color on mouse hover
-            highlightFillColor: function(geo) {
-                return geo['fillKey'] || '#F5F5F5';
-            },
-            // only change border
-            highlightBorderColor: '#B7B7B7',
-            // show desired information in tooltip
-            popupTemplate: function(geo, data) {
-                // don't show tooltip if country don't present in dataset
-                if (!data) { return ; }
-                // tooltip content
-                return ['<div class="hoverinfo">',
-                    '<strong>', geo.properties.name, '</strong>',
-                    '<br>Count: <strong>', data.numberOfThings, '</strong>',
-                    '</div>'].join('');
+            element: document.getElementById('container'),
+            scope: 'usa',
+            fills: colorSet,
+            // fills: { defaultFill: '#F5F5F5'},
+            data: dataset,
+            geographyConfig: {
+                borderColor: '#DEDEDE',
+                highlightBorderWidth: 2,
+                // don't change color on mouse hover
+                highlightFillColor: function(geo) {
+                    return geo['fillKey'] || '#addd8e';
+                },
+                // only change border
+                highlightBorderColor: '#B7B7B7',
+                // show desired information in tooltip
+                popupTemplate: function(geo, data) {
+                    // don't show tooltip if country don't present in dataset
+                    if (!data) { return ; }
+                    // tooltip content
+                    return ['<div class="hoverinfo">',
+                        '<strong>', geo.properties.name, '</strong>',
+                        '<br>Count: <strong>', data.numberOfThings, '</strong>',
+                        '</div>'].join('');
+                }
             }
-        }
-      });
+
+        });
+
+        
+
     })
     </script>
 
