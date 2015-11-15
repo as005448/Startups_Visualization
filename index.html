@@ -35,26 +35,21 @@
          style="display: inline-block; width: 240px; text-align: right">
          Found from <span id="nRadius-value">1990</span>
         </label>
-        <input type="range" value = "1990" min="1990" max="2015" id="nRadius">
+        <input type="range" value = "1990" min="1950" max="2015" id="nRadius">
     </div>
 
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
     <script>
 
-    d3.csv("company2.csv", function(error, indata) {
+    d3.csv("company3.csv", function(error, csv) {
 
         var dataset = {};
         var colorSet = {};
-
+        var indata;
         
+        indata = csv;
 
-       //time slide bar on call
-       d3.select("#nRadius").on("input", function() {
-         d3.select("#nRadius-value").text(+this.value);
-        });
-        
-        //manipulate data
-        indata=d3.nest()
+         indata=d3.nest()
         .key(function(d) {return d.state_code;})
         .entries(indata);
 
@@ -74,7 +69,13 @@
                 value = item.values.length;
             dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
             colorSet[paletteScale(value)] = paletteScale(value);
-        });     
+        });   
+
+
+        
+        
+        //manipulate data
+          
 
         var map = new Datamap({
             element: document.getElementById('container'),
@@ -105,7 +106,36 @@
 
         });
 
-        
+
+
+        //time slide bar on call
+       d3.select("#nRadius").on("input", function() {
+            var year = +this.value;
+             d3.select("#nRadius-value").text(+this.value);
+             
+             indata = csv.filter(filterData);
+
+            function filterData(datum) {
+                return +datum["founded_year"] >= year;
+            }
+
+             indata=d3.nest()
+            .key(function(d) {return d.state_code;})
+            .entries(indata);
+
+            
+
+
+            indata.forEach(function(item){ //
+            // item example value ["USA", 70]
+                var iso = item.key,
+                    value = item.values.length;
+                dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+                colorSet[paletteScale(value)] = paletteScale(value);
+            });   
+
+            map.updateChoropleth(dataset);
+        });
 
     })
     </script>
