@@ -39,6 +39,7 @@
     </div>
 
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
+    <img src="color legend.png" alt="Mountain View" style="width:304px;height:228px;">
     <script>
 
     d3.csv("company3.csv", function(error, csv) {
@@ -122,9 +123,6 @@
              indata=d3.nest()
             .key(function(d) {return d.state_code;})
             .entries(indata);
-
-            
-
 
             indata.forEach(function(item){ //
             // item example value ["USA", 70]
