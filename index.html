@@ -14,12 +14,29 @@
 
     <style>
         .subunit-label {
-        fill: #777;
-        fill-opacity: .5;
-        font-size: 20px;
-        font-weight: 300;
-        text-anchor: middle;
+            fill: #777;
+            fill-opacity: .5;
+            font-size: 20px;
+            font-weight: 300;
+            text-anchor: middle;
         }
+
+        .brush .extent {
+            stroke: #FFF;
+            shape-rendering: crispEdges;
+        }
+
+        .table {
+            border-collapse: collapse;
+            border: 2px black solid;
+            font: 12px sans-serif;
+        }
+
+        .td {
+            border: 1px black solid;
+            padding: 5px;
+        }
+
     </style>
 
 
@@ -39,10 +56,19 @@
     </div>
 
     <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
+<<<<<<< Updated upstream
     <img src="color legend.png" alt="Mountain View" style="width:304px;height:228px;">
+=======
+
+>>>>>>> Stashed changes
     <script>
 
+
     d3.csv("company3.csv", function(error, csv) {
+
+
+    d3.csv("numofstartups.csv", function(error, indata) {
+
 
         var dataset = {};
         var colorSet = {};
