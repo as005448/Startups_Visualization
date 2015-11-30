@@ -72,11 +72,7 @@
         .key(function(d) {return d.state_code;})
         .rollup(function(d) {return {
             "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
-<<<<<<< HEAD
-                return parseInt(g.funding_total_usd);
-=======
                 return +g.funding_total_usd;
->>>>>>> origin/master
             })
         }})
         .entries(indata);
@@ -181,7 +177,6 @@
                 indata[i] = [csv[i]["Market"], csv[i]["state_code"], +csv[i]["Count_of_market"], 0];
                 i++;
             })
-            console.log(sales_data)
             console.log(indata);
             console.log(i);
             var width = 1100, height = 610, margin ={b:0, t:40, l:170, r:50};
