@@ -61,7 +61,7 @@
 
     <script>
 
-    d3.csv("company3.csv", function(error, csv) {
+    d3.csv("company3_updated.csv", function(error, csv) {
 
         var dataset = {};
         var colorSet = {};
@@ -73,7 +73,7 @@
         .key(function(d) {return d.state_code;})
         .rollup(function(d) {return {
             "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
-                return g.funding_total_usd;
+                return parseInt(g.funding_total_usd);
             })
         }})
         .entries(indata);
@@ -96,9 +96,7 @@
             dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
                             totalOfThings: fundingTotal };
             colorSet[paletteScale(value)] = paletteScale(value);
-        });   
-
-
+        });
         
         
         //manipulate data
@@ -149,13 +147,20 @@
 
              indata=d3.nest()
             .key(function(d) {return d.state_code;})
+            .rollup(function(d) {return {
+                "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
+                    return parseInt(g.funding_total_usd);
+                })
+            }})
             .entries(indata);
 
             indata.forEach(function(item){ //
             // item example value ["USA", 70]
                 var iso = item.key,
-                    value = item.values.length;
-                dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+                    value = item.values.length,
+                    fundingTotal = item.values.totalFunding_State;
+                dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
+                            totalOfThings: fundingTotal };
                 colorSet[paletteScale(value)] = paletteScale(value);
             });   
 
