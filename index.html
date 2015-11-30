@@ -72,11 +72,7 @@
         .key(function(d) {return d.state_code;})
         .rollup(function(d) {return {
             "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
-<<<<<<< HEAD
                 return parseInt(g.funding_total_usd);
-=======
-                return +g.funding_total_usd;
->>>>>>> origin/master
             })
         }})
         .entries(indata);
