@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+          <link rel="stylesheet" href="css/style.css">
+
+    </head>
+
+    <style>
+        .subunit-label {
+        fill: #777;
+        fill-opacity: .5;
+        font-size: 20px;
+        font-weight: 300;
+        text-anchor: middle;
+        }
+    </style>
+
+
+
+    <body>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
+    
+    <div id = "timeSilder">
+        <label for="nRadius" 
+         style="display: inline-block; width: 240px; text-align: right">
+         Found from <span id="nRadius-value">1990</span>
+        </label>
+        <input type="range" value = "1990" min="1950" max="2015" id="nRadius">
+    </div>
+
+    <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
+    <img src="color legend.png" alt="Mountain View" style="width:304px;height:228px;">
+    <script>
+
+    d3.csv("company3.csv", function(error, csv) {
+
+        var dataset = {};
+        var colorSet = {};
+        var indata;
+        
+        indata = csv;
+
+         indata=d3.nest()
+        .key(function(d) {return d.state_code;})
+        .entries(indata);
+
+        var onlyValues = indata.map(function(obj){ return obj.values.length; });
+        
+        var minValue = Math.min.apply(null, onlyValues),
+            maxValue = Math.max.apply(null, onlyValues);
+
+        var paletteScale = d3.scale.log()
+            .domain([minValue,maxValue])
+            .range(["#feb24c","#800026"]);
+
+
+        indata.forEach(function(item){ //
+        // item example value ["USA", 70]
+            var iso = item.key,
+                value = item.values.length;
+            dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+            colorSet[paletteScale(value)] = paletteScale(value);
+        });   
+
+
+        
+        
+        //manipulate data
+          
+
+        var map = new Datamap({
+            element: document.getElementById('container'),
+            scope: 'usa',
+            fills: colorSet,
+            // fills: { defaultFill: '#F5F5F5'},
+            data: dataset,
+            geographyConfig: {
+                borderColor: '#DEDEDE',
+                highlightBorderWidth: 2,
+                // don't change color on mouse hover
+                highlightFillColor: function(geo) {
+                    return geo['fillKey'] || '#addd8e';
+                },
+                // only change border
+                highlightBorderColor: '#B7B7B7',
+                // show desired information in tooltip
+                popupTemplate: function(geo, data) {
+                    // don't show tooltip if country don't present in dataset
+                    if (!data) { return ; }
+                    // tooltip content
+                    return ['<div class="hoverinfo">',
+                        '<strong>', geo.properties.name, '</strong>',
+                        '<br>Count: <strong>', data.numberOfThings, '</strong>',
+                        '</div>'].join('');
+                }
+            }
+
+        });
+
+
+
+        //time slide bar on call
+       d3.select("#nRadius").on("input", function() {
+            var year = +this.value;
+             d3.select("#nRadius-value").text(+this.value);
+             
+             indata = csv.filter(filterData);
+
+            function filterData(datum) {
+                return +datum["founded_year"] >= year;
+            }
+
+             indata=d3.nest()
+            .key(function(d) {return d.state_code;})
+            .entries(indata);
+
+            indata.forEach(function(item){ //
+            // item example value ["USA", 70]
+                var iso = item.key,
+                    value = item.values.length;
+                dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value) };
+                colorSet[paletteScale(value)] = paletteScale(value);
+            });   
+
+            map.updateChoropleth(dataset);
+        });
+
+    })
+    </script>
+
+    </body>
+</html>
