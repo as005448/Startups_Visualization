@@ -1,66 +1,76 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
+<meta charset="utf-8">
+<link rel = "stylesheet" href = "styles.css">
 
 
-
-
-
-    <head>
-        <meta charset="utf-8">
-        <title>D3 Test</title>
-
-    </head>
-
-    <style>
-        #timeSilder {
-            /* background-color: yellow; */
-            width: 700px;
-
-        }
-        .subunit-label {
-            fill: #777;
-            fill-opacity: .5;
-            font-size: 20px;
-            font-weight: 300;
-            text-anchor: middle;
-        }
-        body{
-            width:1200px;
-            margin:100px auto;
-        }
-        svg text{
-            font-size:12px;
-        }
-        rect{
-            shape-rendering:crispEdges;
-        }
-    </style>
-
-
-
-    <body>
+<body>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.6.0/d3-legend.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.6.0/d3-legend.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="biPartite.js"></script>
+
+
     <div>
-        <div id = "timeSilder">
+
+        <div id="header" style = "background-color:grey;
+                                    color:white;
+                                    clear:both;
+                                    text-align:center;
+                                    padding:5px;">
+            <h1>Startups Ecosystem</h1>
+            
+        </div>
+
+        
+
+
+        <div id = "timeSilder" style = "width: 320px; border: 2px solid grey;
+                    padding:25px">
           <label for="nRadius" 
-            style="display: inline-block; width: 240px; text-align: right">
+            style="display: inline-block; width: 120px; text-align: left">
              Found from <span id="nRadius-value">1990</span>
           </label>
+
          <input type="range" value = "1990" min="1980" max="2015" id="nRadius">
+
+         <p>&nbsp; 
+
+         <svg height="30" width="400">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color: #feb24c;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#800026;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect width="300" height="30" fill="url(#grad1)" padding = "25px"/>
+        </svg>
+        
+        <div>
+            <span style = "padding-right: 1em">15</span>
+            <span style = "padding-right: 1em">50</span>
+            <span style = "padding-right: 1em">100</span>
+            <span style = "padding-right: 1em">250</span>
+            <span style = "padding-right: 1em">700</span>
+            <span style = "padding-right: 1.5em">1500</span>10000
+        </div>
+        
+
         </div>
 
         <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
-        <img src="color legend.png" alt="Mountain View" style="width:400px;height:100px;">
+
     </div>
 
     <script>
 
-    d3.csv("company3_updated.csv", function(error, csv) {
+
+
+    d3.csv("Funding.csv", function(error, csv) {
 
         var dataset = {};
         var colorSet = {};
@@ -71,8 +81,8 @@
          indata=d3.nest()
         .key(function(d) {return d.state_code;})
         .rollup(function(d) {return {
-            "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
-                return +g.funding_total_usd;
+            "length": d.length, "total_funding": d3.sum(d, function(g) {
+                return parseInt(g.funding_total_usd);
             })
         }})
         .entries(indata);
@@ -91,7 +101,7 @@
         // item example value ["USA", 70]
             var iso = item.key,
                 value = item.values.length,
-                fundingTotal = item.values.totalFunding_State;
+                fundingTotal = item.values.total_funding;
             dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
                             totalOfThings: fundingTotal };
             colorSet[paletteScale(value)] = paletteScale(value);
@@ -109,13 +119,15 @@
             data: dataset,
             geographyConfig: {
                 borderColor: '#DEDEDE',
-                highlightBorderWidth: 2,
+                highlightBorderWidth: 4,
                 // don't change color on mouse hover
-                highlightFillColor: function(geo) {
-                    return geo['fillKey'] || '#addd8e';
-                },
+                // highlightFillColor: function(geo) {
+                //     return geo['fillKey'] || '#addd8e';
+                // },
                 // only change border
-                highlightBorderColor: '#B7B7B7',
+                highlightBorderColor: '#FFFFFF',
+                
+
                 // show desired information in tooltip
                 popupTemplate: function(geo, data) {
                     // don't show tooltip if country don't present in dataset
@@ -130,6 +142,8 @@
             }
 
         });
+
+        
 
 
 
@@ -147,8 +161,8 @@
              indata=d3.nest()
             .key(function(d) {return d.state_code;})
             .rollup(function(d) {return {
-                "length": d.length, "totalFunding_State": d3.sum(d, function(g) {
-                    return parseInt(g.funding_total_usd);
+                "length": d.length, "total_funding": d3.sum(d, function(g) {
+                    return parseFloat(g.funding_total_usd);
                 })
             }})
             .entries(indata);
@@ -157,7 +171,7 @@
             // item example value ["USA", 70]
                 var iso = item.key,
                     value = item.values.length,
-                    fundingTotal = item.values.totalFunding_State;
+                    fundingTotal = item.values.total_funding;
                 dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
                             totalOfThings: fundingTotal };
                 colorSet[paletteScale(value)] = paletteScale(value);
