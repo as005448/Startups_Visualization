@@ -1,0 +1,860 @@
+Market,state_code,Count_of_Market
+ Advertising ,AR,2
+ Advertising ,AZ,12
+ Advertising ,CA,259
+ Advertising ,CO,23
+ Advertising ,CT,6
+ Advertising ,DC,2
+ Advertising ,DE,1
+ Advertising ,FL,19
+ Advertising ,GA,12
+ Advertising ,HI,1
+ Advertising ,IA,1
+ Advertising ,ID,2
+ Advertising ,IL,17
+ Advertising ,IN,4
+ Advertising ,KY,3
+ Advertising ,LA,1
+ Advertising ,MA,35
+ Advertising ,MD,10
+ Advertising ,ME,2
+ Advertising ,MI,1
+ Advertising ,MN,4
+ Advertising ,MO,4
+ Advertising ,NC,10
+ Advertising ,NE,2
+ Advertising ,NH,3
+ Advertising ,NJ,6
+ Advertising ,NV,6
+ Advertising ,NY,162
+ Advertising ,OH,5
+ Advertising ,OR,2
+ Advertising ,PA,8
+ Advertising ,RI,1
+ Advertising ,SC,2
+ Advertising ,TN,4
+ Advertising ,TX,23
+ Advertising ,UT,11
+ Advertising ,VA,8
+ Advertising ,VT,4
+ Advertising ,WA,18
+ Advertising ,WI,1
+ Analytics ,AL,1
+ Analytics ,AZ,1
+ Analytics ,CA,205
+ Analytics ,CO,10
+ Analytics ,CT,6
+ Analytics ,DC,7
+ Analytics ,DE,1
+ Analytics ,FL,9
+ Analytics ,GA,9
+ Analytics ,ID,1
+ Analytics ,IL,18
+ Analytics ,IN,2
+ Analytics ,KS,2
+ Analytics ,LA,1
+ Analytics ,MA,43
+ Analytics ,MD,8
+ Analytics ,ME,3
+ Analytics ,MI,7
+ Analytics ,MN,2
+ Analytics ,MO,3
+ Analytics ,NC,12
+ Analytics ,NH,1
+ Analytics ,NJ,5
+ Analytics ,NV,1
+ Analytics ,NY,50
+ Analytics ,OH,10
+ Analytics ,OR,5
+ Analytics ,PA,11
+ Analytics ,RI,1
+ Analytics ,SC,3
+ Analytics ,TN,3
+ Analytics ,TX,21
+ Analytics ,UT,6
+ Analytics ,VA,16
+ Analytics ,WA,19
+ Analytics ,WI,6
+ Biotechnology ,AK,1
+ Biotechnology ,AL,31
+ Biotechnology ,AR,10
+ Biotechnology ,AZ,29
+ Biotechnology ,CA,796
+ Biotechnology ,CO,61
+ Biotechnology ,CT,59
+ Biotechnology ,DC,6
+ Biotechnology ,DE,8
+ Biotechnology ,FL,109
+ Biotechnology ,GA,45
+ Biotechnology ,HI,6
+ Biotechnology ,IA,8
+ Biotechnology ,ID,2
+ Biotechnology ,IL,49
+ Biotechnology ,IN,40
+ Biotechnology ,KS,11
+ Biotechnology ,KY,24
+ Biotechnology ,LA,5
+ Biotechnology ,MA,362
+ Biotechnology ,MD,99
+ Biotechnology ,ME,9
+ Biotechnology ,MI,64
+ Biotechnology ,MN,60
+ Biotechnology ,MO,36
+ Biotechnology ,MS,1
+ Biotechnology ,MT,6
+ Biotechnology ,NC,97
+ Biotechnology ,ND,1
+ Biotechnology ,NE,4
+ Biotechnology ,NH,8
+ Biotechnology ,NJ,97
+ Biotechnology ,NM,8
+ Biotechnology ,NV,12
+ Biotechnology ,NY,131
+ Biotechnology ,OH,42
+ Biotechnology ,OK,9
+ Biotechnology ,OR,23
+ Biotechnology ,PA,147
+ Biotechnology ,RI,17
+ Biotechnology ,SC,16
+ Biotechnology ,TN,43
+ Biotechnology ,TX,127
+ Biotechnology ,UT,28
+ Biotechnology ,VA,44
+ Biotechnology ,WA,98
+ Biotechnology ,WI,38
+ Biotechnology ,WV,2
+ Biotechnology ,WY,1
+ Clean Technology ,AR,5
+ Clean Technology ,AZ,13
+ Clean Technology ,CA,217
+ Clean Technology ,CO,28
+ Clean Technology ,CT,6
+ Clean Technology ,DC,1
+ Clean Technology ,DE,4
+ Clean Technology ,FL,24
+ Clean Technology ,GA,10
+ Clean Technology ,HI,5
+ Clean Technology ,IA,1
+ Clean Technology ,ID,4
+ Clean Technology ,IL,15
+ Clean Technology ,IN,3
+ Clean Technology ,KS,1
+ Clean Technology ,KY,3
+ Clean Technology ,LA,1
+ Clean Technology ,MA,78
+ Clean Technology ,MD,17
+ Clean Technology ,ME,1
+ Clean Technology ,MI,12
+ Clean Technology ,MN,6
+ Clean Technology ,MO,4
+ Clean Technology ,MS,1
+ Clean Technology ,MT,6
+ Clean Technology ,NC,12
+ Clean Technology ,NE,1
+ Clean Technology ,NH,9
+ Clean Technology ,NJ,17
+ Clean Technology ,NM,11
+ Clean Technology ,NV,10
+ Clean Technology ,NY,38
+ Clean Technology ,OH,15
+ Clean Technology ,OK,1
+ Clean Technology ,OR,13
+ Clean Technology ,PA,19
+ Clean Technology ,RI,3
+ Clean Technology ,SC,3
+ Clean Technology ,TN,13
+ Clean Technology ,TX,62
+ Clean Technology ,UT,13
+ Clean Technology ,VA,6
+ Clean Technology ,VT,7
+ Clean Technology ,WA,24
+ Clean Technology ,WI,7
+ Clean Technology ,WV,1
+ Consulting ,AL,2
+ Consulting ,AR,9
+ Consulting ,AZ,9
+ Consulting ,CA,63
+ Consulting ,CO,10
+ Consulting ,CT,7
+ Consulting ,DC,2
+ Consulting ,DE,3
+ Consulting ,FL,21
+ Consulting ,GA,10
+ Consulting ,HI,2
+ Consulting ,IA,2
+ Consulting ,ID,1
+ Consulting ,IL,14
+ Consulting ,IN,5
+ Consulting ,KS,4
+ Consulting ,LA,1
+ Consulting ,MA,20
+ Consulting ,MD,13
+ Consulting ,MI,7
+ Consulting ,MN,4
+ Consulting ,MO,7
+ Consulting ,NC,5
+ Consulting ,NE,1
+ Consulting ,NH,2
+ Consulting ,NJ,18
+ Consulting ,NM,1
+ Consulting ,NV,6
+ Consulting ,NY,25
+ Consulting ,OH,4
+ Consulting ,OK,1
+ Consulting ,OR,4
+ Consulting ,PA,9
+ Consulting ,SC,4
+ Consulting ,SD,1
+ Consulting ,TN,3
+ Consulting ,TX,28
+ Consulting ,UT,5
+ Consulting ,VA,15
+ Consulting ,WA,2
+ Consulting ,WI,2
+ Consulting ,WY,1
+ Curated Web ,AR,1
+ Curated Web ,AZ,8
+ Curated Web ,CA,364
+ Curated Web ,CO,13
+ Curated Web ,CT,8
+ Curated Web ,DC,8
+ Curated Web ,DE,2
+ Curated Web ,FL,21
+ Curated Web ,GA,11
+ Curated Web ,IA,1
+ Curated Web ,IL,25
+ Curated Web ,IN,4
+ Curated Web ,KS,2
+ Curated Web ,KY,2
+ Curated Web ,LA,1
+ Curated Web ,MA,41
+ Curated Web ,MD,10
+ Curated Web ,ME,2
+ Curated Web ,MI,5
+ Curated Web ,MN,11
+ Curated Web ,MO,4
+ Curated Web ,MT,1
+ Curated Web ,NC,3
+ Curated Web ,NE,6
+ Curated Web ,NH,3
+ Curated Web ,NJ,2
+ Curated Web ,NV,7
+ Curated Web ,NY,150
+ Curated Web ,OH,12
+ Curated Web ,OK,1
+ Curated Web ,OR,5
+ Curated Web ,PA,16
+ Curated Web ,RI,2
+ Curated Web ,SD,1
+ Curated Web ,TN,13
+ Curated Web ,TX,26
+ Curated Web ,UT,10
+ Curated Web ,VA,21
+ Curated Web ,VT,3
+ Curated Web ,WA,32
+ Curated Web ,WI,8
+ E-Commerce ,AL,3
+ E-Commerce ,AR,6
+ E-Commerce ,AZ,4
+ E-Commerce ,CA,309
+ E-Commerce ,CO,17
+ E-Commerce ,CT,6
+ E-Commerce ,DC,6
+ E-Commerce ,DE,6
+ E-Commerce ,FL,40
+ E-Commerce ,GA,18
+ E-Commerce ,HI,3
+ E-Commerce ,IA,3
+ E-Commerce ,ID,3
+ E-Commerce ,IL,34
+ E-Commerce ,IN,6
+ E-Commerce ,KS,5
+ E-Commerce ,KY,2
+ E-Commerce ,MA,38
+ E-Commerce ,MD,14
+ E-Commerce ,ME,4
+ E-Commerce ,MI,8
+ E-Commerce ,MN,9
+ E-Commerce ,MO,6
+ E-Commerce ,MS,1
+ E-Commerce ,NC,11
+ E-Commerce ,ND,1
+ E-Commerce ,NE,3
+ E-Commerce ,NH,1
+ E-Commerce ,NJ,10
+ E-Commerce ,NM,2
+ E-Commerce ,NV,6
+ E-Commerce ,NY,146
+ E-Commerce ,OH,19
+ E-Commerce ,OK,1
+ E-Commerce ,OR,15
+ E-Commerce ,PA,20
+ E-Commerce ,RI,5
+ E-Commerce ,SC,2
+ E-Commerce ,SD,1
+ E-Commerce ,TN,6
+ E-Commerce ,TX,29
+ E-Commerce ,UT,14
+ E-Commerce ,VA,8
+ E-Commerce ,VT,3
+ E-Commerce ,WA,35
+ E-Commerce ,WI,5
+ Education ,AL,1
+ Education ,AR,9
+ Education ,AZ,9
+ Education ,CA,166
+ Education ,CO,10
+ Education ,CT,10
+ Education ,DC,13
+ Education ,DE,1
+ Education ,FL,17
+ Education ,GA,7
+ Education ,HI,2
+ Education ,IA,5
+ Education ,ID,4
+ Education ,IL,26
+ Education ,IN,3
+ Education ,KY,1
+ Education ,LA,5
+ Education ,MA,43
+ Education ,MD,19
+ Education ,ME,4
+ Education ,MI,11
+ Education ,MN,7
+ Education ,MO,3
+ Education ,MS,1
+ Education ,NC,9
+ Education ,ND,3
+ Education ,NE,3
+ Education ,NH,3
+ Education ,NJ,20
+ Education ,NM,1
+ Education ,NV,3
+ Education ,NY,82
+ Education ,OH,15
+ Education ,OK,1
+ Education ,OR,3
+ Education ,PA,21
+ Education ,RI,6
+ Education ,SC,6
+ Education ,SD,1
+ Education ,TN,8
+ Education ,TX,24
+ Education ,UT,9
+ Education ,VA,12
+ Education ,VT,2
+ Education ,WA,18
+ Education ,WI,5
+ Education ,WY,1
+ Enterprise Software ,AL,2
+ Enterprise Software ,AR,2
+ Enterprise Software ,AZ,11
+ Enterprise Software ,CA,398
+ Enterprise Software ,CO,22
+ Enterprise Software ,CT,6
+ Enterprise Software ,DC,5
+ Enterprise Software ,DE,2
+ Enterprise Software ,FL,24
+ Enterprise Software ,GA,17
+ Enterprise Software ,IA,2
+ Enterprise Software ,ID,1
+ Enterprise Software ,IL,26
+ Enterprise Software ,IN,9
+ Enterprise Software ,KS,3
+ Enterprise Software ,KY,3
+ Enterprise Software ,MA,90
+ Enterprise Software ,MD,11
+ Enterprise Software ,MI,5
+ Enterprise Software ,MN,3
+ Enterprise Software ,MO,5
+ Enterprise Software ,MT,3
+ Enterprise Software ,NC,8
+ Enterprise Software ,NE,2
+ Enterprise Software ,NH,7
+ Enterprise Software ,NJ,11
+ Enterprise Software ,NV,4
+ Enterprise Software ,NY,72
+ Enterprise Software ,OH,15
+ Enterprise Software ,OR,7
+ Enterprise Software ,PA,33
+ Enterprise Software ,RI,5
+ Enterprise Software ,SC,2
+ Enterprise Software ,TN,9
+ Enterprise Software ,TX,44
+ Enterprise Software ,UT,14
+ Enterprise Software ,VA,31
+ Enterprise Software ,VT,2
+ Enterprise Software ,WA,42
+ Enterprise Software ,WI,5
+ Finance ,AL,1
+ Finance ,AR,1
+ Finance ,AZ,7
+ Finance ,CA,143
+ Finance ,CO,20
+ Finance ,CT,8
+ Finance ,DC,2
+ Finance ,DE,3
+ Finance ,FL,37
+ Finance ,GA,16
+ Finance ,HI,1
+ Finance ,IA,2
+ Finance ,ID,4
+ Finance ,IL,22
+ Finance ,IN,5
+ Finance ,KS,5
+ Finance ,LA,4
+ Finance ,MA,34
+ Finance ,MD,4
+ Finance ,ME,1
+ Finance ,MI,6
+ Finance ,MN,4
+ Finance ,MO,2
+ Finance ,NC,7
+ Finance ,NE,3
+ Finance ,NJ,11
+ Finance ,NM,1
+ Finance ,NV,10
+ Finance ,NY,100
+ Finance ,OH,12
+ Finance ,OR,7
+ Finance ,PA,14
+ Finance ,RI,1
+ Finance ,SC,4
+ Finance ,TN,4
+ Finance ,TX,25
+ Finance ,UT,15
+ Finance ,VA,8
+ Finance ,VT,3
+ Finance ,WA,21
+ Finance ,WI,1
+ Finance ,WY,1
+ Games ,AL,1
+ Games ,AR,3
+ Games ,AZ,7
+ Games ,CA,259
+ Games ,CO,8
+ Games ,CT,5
+ Games ,DC,3
+ Games ,DE,1
+ Games ,FL,27
+ Games ,GA,13
+ Games ,HI,4
+ Games ,IA,1
+ Games ,ID,1
+ Games ,IL,7
+ Games ,IN,5
+ Games ,KS,1
+ Games ,KY,5
+ Games ,LA,2
+ Games ,MA,25
+ Games ,MD,4
+ Games ,MI,8
+ Games ,MN,2
+ Games ,MO,6
+ Games ,MS,2
+ Games ,NC,4
+ Games ,NE,2
+ Games ,NH,2
+ Games ,NJ,5
+ Games ,NM,1
+ Games ,NV,13
+ Games ,NY,58
+ Games ,OH,5
+ Games ,OK,1
+ Games ,OR,6
+ Games ,PA,11
+ Games ,RI,3
+ Games ,SC,2
+ Games ,TN,2
+ Games ,TX,20
+ Games ,UT,2
+ Games ,VA,4
+ Games ,WA,26
+ Games ,WI,3
+ Hardware + Software ,AL,3
+ Hardware + Software ,AZ,5
+ Hardware + Software ,CA,268
+ Hardware + Software ,CO,21
+ Hardware + Software ,CT,11
+ Hardware + Software ,DC,5
+ Hardware + Software ,DE,5
+ Hardware + Software ,FL,29
+ Hardware + Software ,GA,11
+ Hardware + Software ,HI,2
+ Hardware + Software ,IA,2
+ Hardware + Software ,ID,2
+ Hardware + Software ,IL,12
+ Hardware + Software ,IN,8
+ Hardware + Software ,KS,3
+ Hardware + Software ,KY,6
+ Hardware + Software ,MA,65
+ Hardware + Software ,MD,17
+ Hardware + Software ,MI,14
+ Hardware + Software ,MN,17
+ Hardware + Software ,MO,4
+ Hardware + Software ,MS,2
+ Hardware + Software ,MT,1
+ Hardware + Software ,NC,17
+ Hardware + Software ,ND,1
+ Hardware + Software ,NH,3
+ Hardware + Software ,NJ,20
+ Hardware + Software ,NM,4
+ Hardware + Software ,NV,2
+ Hardware + Software ,NY,35
+ Hardware + Software ,OH,16
+ Hardware + Software ,OK,1
+ Hardware + Software ,OR,9
+ Hardware + Software ,PA,23
+ Hardware + Software ,SC,4
+ Hardware + Software ,SD,2
+ Hardware + Software ,TN,9
+ Hardware + Software ,TX,36
+ Hardware + Software ,UT,9
+ Hardware + Software ,VA,13
+ Hardware + Software ,VT,1
+ Hardware + Software ,WA,22
+ Hardware + Software ,WI,3
+ Health and Wellness ,AK,2
+ Health and Wellness ,AL,6
+ Health and Wellness ,AZ,13
+ Health and Wellness ,CA,234
+ Health and Wellness ,CO,22
+ Health and Wellness ,CT,14
+ Health and Wellness ,DC,4
+ Health and Wellness ,DE,1
+ Health and Wellness ,FL,40
+ Health and Wellness ,GA,18
+ Health and Wellness ,HI,2
+ Health and Wellness ,IA,5
+ Health and Wellness ,ID,4
+ Health and Wellness ,IL,34
+ Health and Wellness ,IN,8
+ Health and Wellness ,KS,6
+ Health and Wellness ,KY,5
+ Health and Wellness ,LA,5
+ Health and Wellness ,MA,55
+ Health and Wellness ,MD,27
+ Health and Wellness ,MI,9
+ Health and Wellness ,MN,21
+ Health and Wellness ,MO,7
+ Health and Wellness ,MT,2
+ Health and Wellness ,NC,20
+ Health and Wellness ,NE,4
+ Health and Wellness ,NH,2
+ Health and Wellness ,NJ,23
+ Health and Wellness ,NM,4
+ Health and Wellness ,NV,6
+ Health and Wellness ,NY,69
+ Health and Wellness ,OH,20
+ Health and Wellness ,OK,4
+ Health and Wellness ,OR,6
+ Health and Wellness ,PA,30
+ Health and Wellness ,RI,3
+ Health and Wellness ,SC,4
+ Health and Wellness ,SD,2
+ Health and Wellness ,TN,31
+ Health and Wellness ,TX,56
+ Health and Wellness ,UT,13
+ Health and Wellness ,VA,19
+ Health and Wellness ,VT,2
+ Health and Wellness ,WA,20
+ Health and Wellness ,WI,6
+ Health and Wellness ,WV,2
+ Health Care ,AL,2
+ Health Care ,AR,2
+ Health Care ,AZ,17
+ Health Care ,CA,263
+ Health Care ,CO,24
+ Health Care ,CT,16
+ Health Care ,DC,2
+ Health Care ,FL,30
+ Health Care ,GA,17
+ Health Care ,IA,1
+ Health Care ,IL,22
+ Health Care ,IN,5
+ Health Care ,KS,5
+ Health Care ,KY,3
+ Health Care ,LA,1
+ Health Care ,MA,78
+ Health Care ,MD,8
+ Health Care ,ME,1
+ Health Care ,MI,11
+ Health Care ,MN,40
+ Health Care ,MO,8
+ Health Care ,MS,1
+ Health Care ,MT,1
+ Health Care ,NC,17
+ Health Care ,NH,4
+ Health Care ,NJ,22
+ Health Care ,NM,3
+ Health Care ,NV,4
+ Health Care ,NY,37
+ Health Care ,OH,23
+ Health Care ,OK,3
+ Health Care ,OR,9
+ Health Care ,PA,32
+ Health Care ,RI,4
+ Health Care ,SC,3
+ Health Care ,SD,1
+ Health Care ,TN,36
+ Health Care ,TX,46
+ Health Care ,UT,7
+ Health Care ,VA,13
+ Health Care ,WA,28
+ Health Care ,WI,13
+ Health Care ,WY,1
+ Manufacturing ,AL,3
+ Manufacturing ,AR,4
+ Manufacturing ,AZ,6
+ Manufacturing ,CA,135
+ Manufacturing ,CO,19
+ Manufacturing ,CT,18
+ Manufacturing ,DC,5
+ Manufacturing ,DE,1
+ Manufacturing ,FL,22
+ Manufacturing ,GA,8
+ Manufacturing ,HI,1
+ Manufacturing ,IA,2
+ Manufacturing ,ID,1
+ Manufacturing ,IL,14
+ Manufacturing ,IN,5
+ Manufacturing ,KY,8
+ Manufacturing ,LA,3
+ Manufacturing ,MA,29
+ Manufacturing ,MD,10
+ Manufacturing ,ME,3
+ Manufacturing ,MI,7
+ Manufacturing ,MN,15
+ Manufacturing ,MO,10
+ Manufacturing ,NC,11
+ Manufacturing ,ND,1
+ Manufacturing ,NE,1
+ Manufacturing ,NH,4
+ Manufacturing ,NJ,16
+ Manufacturing ,NM,2
+ Manufacturing ,NV,6
+ Manufacturing ,NY,24
+ Manufacturing ,OH,14
+ Manufacturing ,OK,7
+ Manufacturing ,OR,6
+ Manufacturing ,PA,18
+ Manufacturing ,RI,1
+ Manufacturing ,SC,4
+ Manufacturing ,SD,1
+ Manufacturing ,TN,5
+ Manufacturing ,TX,42
+ Manufacturing ,UT,14
+ Manufacturing ,VA,5
+ Manufacturing ,VT,2
+ Manufacturing ,WA,12
+ Manufacturing ,WV,2
+ Mobile ,AK,1
+ Mobile ,AL,5
+ Mobile ,AR,3
+ Mobile ,AZ,15
+ Mobile ,CA,536
+ Mobile ,CO,25
+ Mobile ,CT,6
+ Mobile ,DC,8
+ Mobile ,DE,1
+ Mobile ,FL,36
+ Mobile ,GA,29
+ Mobile ,HI,2
+ Mobile ,IA,3
+ Mobile ,IL,25
+ Mobile ,IN,8
+ Mobile ,KS,4
+ Mobile ,LA,1
+ Mobile ,MA,70
+ Mobile ,MD,14
+ Mobile ,ME,2
+ Mobile ,MI,4
+ Mobile ,MN,6
+ Mobile ,MO,4
+ Mobile ,MS,2
+ Mobile ,NC,18
+ Mobile ,ND,1
+ Mobile ,NE,1
+ Mobile ,NH,3
+ Mobile ,NJ,16
+ Mobile ,NM,1
+ Mobile ,NV,6
+ Mobile ,NY,130
+ Mobile ,OH,12
+ Mobile ,OK,4
+ Mobile ,OR,13
+ Mobile ,PA,18
+ Mobile ,RI,1
+ Mobile ,SC,5
+ Mobile ,TN,7
+ Mobile ,TX,57
+ Mobile ,UT,9
+ Mobile ,VA,28
+ Mobile ,WA,49
+ Mobile ,WI,3
+ Real Estate ,AK,1
+ Real Estate ,AL,5
+ Real Estate ,AZ,2
+ Real Estate ,CA,81
+ Real Estate ,CO,7
+ Real Estate ,CT,4
+ Real Estate ,DC,7
+ Real Estate ,DE,1
+ Real Estate ,FL,32
+ Real Estate ,GA,17
+ Real Estate ,IA,1
+ Real Estate ,IL,17
+ Real Estate ,IN,6
+ Real Estate ,KS,1
+ Real Estate ,KY,1
+ Real Estate ,LA,2
+ Real Estate ,MA,14
+ Real Estate ,MD,8
+ Real Estate ,MI,6
+ Real Estate ,MN,4
+ Real Estate ,MO,3
+ Real Estate ,MS,1
+ Real Estate ,NC,9
+ Real Estate ,NE,2
+ Real Estate ,NH,1
+ Real Estate ,NJ,13
+ Real Estate ,NM,2
+ Real Estate ,NV,6
+ Real Estate ,NY,45
+ Real Estate ,OH,8
+ Real Estate ,OK,3
+ Real Estate ,OR,2
+ Real Estate ,PA,10
+ Real Estate ,SC,3
+ Real Estate ,TN,4
+ Real Estate ,TX,27
+ Real Estate ,UT,6
+ Real Estate ,VA,7
+ Real Estate ,VT,2
+ Real Estate ,WA,12
+ Real Estate ,WI,1
+ Real Estate ,WY,2
+ Security ,AL,1
+ Security ,AZ,6
+ Security ,CA,149
+ Security ,CO,15
+ Security ,CT,1
+ Security ,DC,1
+ Security ,FL,11
+ Security ,GA,9
+ Security ,ID,1
+ Security ,IL,8
+ Security ,IN,2
+ Security ,KS,3
+ Security ,LA,4
+ Security ,MA,32
+ Security ,MD,15
+ Security ,MI,1
+ Security ,MN,5
+ Security ,MO,3
+ Security ,MT,1
+ Security ,NC,1
+ Security ,NE,1
+ Security ,NH,3
+ Security ,NJ,5
+ Security ,NV,4
+ Security ,NY,21
+ Security ,OH,5
+ Security ,OK,2
+ Security ,OR,3
+ Security ,PA,8
+ Security ,RI,1
+ Security ,TN,4
+ Security ,TX,23
+ Security ,UT,4
+ Security ,VA,22
+ Security ,WA,9
+ Social Media ,AR,1
+ Social Media ,AZ,4
+ Social Media ,CA,193
+ Social Media ,CO,6
+ Social Media ,CT,3
+ Social Media ,DC,5
+ Social Media ,DE,2
+ Social Media ,FL,13
+ Social Media ,GA,6
+ Social Media ,IA,1
+ Social Media ,IL,6
+ Social Media ,IN,2
+ Social Media ,LA,2
+ Social Media ,MA,22
+ Social Media ,MD,3
+ Social Media ,MI,2
+ Social Media ,MN,2
+ Social Media ,MO,5
+ Social Media ,MS,1
+ Social Media ,NC,3
+ Social Media ,ND,1
+ Social Media ,NH,1
+ Social Media ,NJ,3
+ Social Media ,NM,1
+ Social Media ,NV,1
+ Social Media ,NY,77
+ Social Media ,OH,7
+ Social Media ,OK,2
+ Social Media ,OR,4
+ Social Media ,PA,12
+ Social Media ,SC,2
+ Social Media ,TN,3
+ Social Media ,TX,19
+ Social Media ,UT,3
+ Social Media ,VA,6
+ Social Media ,VT,1
+ Social Media ,WA,16
+ Social Media ,WI,5
+ Software ,AK,3
+ Software ,AL,16
+ Software ,AR,18
+ Software ,AZ,41
+ Software ,CA,1080
+ Software ,CO,120
+ Software ,CT,39
+ Software ,DC,22
+ Software ,DE,7
+ Software ,FL,86
+ Software ,GA,89
+ Software ,HI,2
+ Software ,IA,10
+ Software ,ID,9
+ Software ,IL,110
+ Software ,IN,38
+ Software ,KS,10
+ Software ,KY,14
+ Software ,LA,9
+ Software ,MA,266
+ Software ,MD,52
+ Software ,ME,6
+ Software ,MI,44
+ Software ,MN,51
+ Software ,MO,27
+ Software ,MS,2
+ Software ,MT,5
+ Software ,NC,67
+ Software ,ND,1
+ Software ,NE,18
+ Software ,NH,16
+ Software ,NJ,66
+ Software ,NM,8
+ Software ,NV,17
+ Software ,NY,284
+ Software ,OH,64
+ Software ,OK,13
+ Software ,OR,49
+ Software ,PA,94
+ Software ,RI,14
+ Software ,SC,11
+ Software ,SD,1
+ Software ,TN,31
+ Software ,TX,205
+ Software ,UT,56
+ Software ,VA,93
+ Software ,VT,3
+ Software ,WA,159
+ Software ,WI,26
+ Software ,WV,3
+ Software ,WY,2
