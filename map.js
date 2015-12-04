@@ -41,7 +41,7 @@ d3.csv("Funding.csv", function(error, csv) {
                 value = item.values.length,
                 fundingTotal = item.values.total_funding;
             dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
-                            totalOfThings: fundingTotal };
+                            fundingTotal: fundingTotal };
             colorSet[paletteScale(value)] = paletteScale(value);
         });
         
@@ -71,10 +71,11 @@ d3.csv("Funding.csv", function(error, csv) {
                     // don't show tooltip if country don't present in dataset
                     if (!data) { return ; }
                     // tooltip content
+                    var t = data.fundingTotal/1000000;
                     return ['<div class="hoverinfo">',
                         '<strong>', geo.properties.name, '</strong>',
                         '<br>Number of Startups: <strong>', data.numberOfThings, '</strong>',
-                        '<br>Total Fundings: <strong>', data.totalOfThings, '</strong>',
+                        '<br>Total Fundings: <strong>', t.toFixed(2), 'M</strong>',
                         '</div>'].join('');
                 }
             }
