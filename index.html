@@ -5,32 +5,41 @@
 
 
 <body>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.6.0/d3-legend.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.6.0/d3-legend.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-    <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="biPartite.js"></script>
-
-
-    <div>
-
-        <div id="header" style = "background-color:grey;
-                                    color:white;
-                                    clear:both;
-                                    text-align:center;
-                                    padding:5px;">
-            <h1>Startups Ecosystem</h1>
-            
+    <div class = "wrap">
+        <!-- div for title of our system -->
+        <div id="header" style = "background-color:grey; color:white;
+                            clear:both; text-align:center; padding:5px;">
+            <h1>Starups Ecosystem</h1>
         </div>
 
+        <!-- div for map -->
+        <div class = "map"></div>
+        <!-- div for top ten label -->
+        <div class = "topTen_label">
+            <h3>Total Funding of Top Ten Startups</h3>
+            <h3 id = "variableName"><table style="width:100%">
+                            <tr><td>Ranking</td><td>Company Name</td><td>Website</td><td>Total Funding</td></tr></table></h3>
+
+        </div>
+        <!-- div for bipartite -->
+        <div class = "bipartite"></div>
+    </div>
+ 
+        <!-- Extenal .js libraries -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+        <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
         
 
 
-        <div id = "timeSilder" style = "width: 320px; border: 2px solid grey;
-                    padding:25px">
+        <!-- .js files -->
+        <script src="map.js"></script>
+        <script src="biPartite.js"></script>
+        
+
+
+        <div id = "timeSilder" style = "width: 320px; padding:25px">
           <label for="nRadius" 
             style="display: inline-block; width: 120px; text-align: left">
              Found from <span id="nRadius-value">1990</span>
@@ -53,6 +62,7 @@
         <div>
             <span style = "padding-right: 1em">15</span>
             <span style = "padding-right: 1em">50</span>
+            
             <span style = "padding-right: 1em">100</span>
             <span style = "padding-right: 1em">250</span>
             <span style = "padding-right: 1em">700</span>
@@ -66,122 +76,7 @@
 
     </div>
 
-    <script>
-
-
-
-    d3.csv("Funding.csv", function(error, csv) {
-
-        var dataset = {};
-        var colorSet = {};
-        var indata;
-        
-        indata = csv;
-
-         indata=d3.nest()
-        .key(function(d) {return d.state_code;})
-        .rollup(function(d) {return {
-            "length": d.length, "total_funding": d3.sum(d, function(g) {
-                return parseInt(g.funding_total_usd);
-            })
-        }})
-        .entries(indata);
-
-        var onlyValues = indata.map(function(obj){ return obj.values.length; });
-        
-        var minValue = Math.min.apply(null, onlyValues),
-            maxValue = Math.max.apply(null, onlyValues);
-
-        var paletteScale = d3.scale.log()
-            .domain([minValue,maxValue])
-            .range(["#feb24c","#800026"]);
-
-
-        indata.forEach(function(item){ //
-        // item example value ["USA", 70]
-            var iso = item.key,
-                value = item.values.length,
-                fundingTotal = item.values.total_funding;
-            dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
-                            totalOfThings: fundingTotal };
-            colorSet[paletteScale(value)] = paletteScale(value);
-        });
-        
-        
-        //manipulate data
-          
-
-        var map = new Datamap({
-            element: document.getElementById('container'),
-            scope: 'usa',
-            fills: colorSet,
-            // fills: { defaultFill: '#F5F5F5'},
-            data: dataset,
-            geographyConfig: {
-                borderColor: '#DEDEDE',
-                highlightBorderWidth: 4,
-                // don't change color on mouse hover
-                // highlightFillColor: function(geo) {
-                //     return geo['fillKey'] || '#addd8e';
-                // },
-                // only change border
-                highlightBorderColor: '#FFFFFF',
-                
-
-                // show desired information in tooltip
-                popupTemplate: function(geo, data) {
-                    // don't show tooltip if country don't present in dataset
-                    if (!data) { return ; }
-                    // tooltip content
-                    return ['<div class="hoverinfo">',
-                        '<strong>', geo.properties.name, '</strong>',
-                        '<br>Number of Startups: <strong>', data.numberOfThings, '</strong>',
-                        '<br>Total Fundings: <strong>', data.totalOfThings, '</strong>',
-                        '</div>'].join('');
-                }
-            }
-
-        });
-
-        
-
-
-
-        //time slide bar on call
-       d3.select("#nRadius").on("input", function() {
-            var year = +this.value;
-             d3.select("#nRadius-value").text(+this.value);
-             
-             indata = csv.filter(filterData);
-
-            function filterData(datum) {
-                return +datum["founded_year"] >= year;
-            }
-
-             indata=d3.nest()
-            .key(function(d) {return d.state_code;})
-            .rollup(function(d) {return {
-                "length": d.length, "total_funding": d3.sum(d, function(g) {
-                    return parseFloat(g.funding_total_usd);
-                })
-            }})
-            .entries(indata);
-
-            indata.forEach(function(item){ //
-            // item example value ["USA", 70]
-                var iso = item.key,
-                    value = item.values.length,
-                    fundingTotal = item.values.total_funding;
-                dataset[iso] = { numberOfThings: value, fillKey: paletteScale(value),
-                            totalOfThings: fundingTotal };
-                colorSet[paletteScale(value)] = paletteScale(value);
-            });   
-
-            map.updateChoropleth(dataset);
-        });
-
-    })
-    </script>
+    
 
     <script>
         d3.csv("Top10.csv", function(error, csv) {
