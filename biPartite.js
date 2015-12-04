@@ -229,6 +229,7 @@
 			drawEdges(visData, biP.id);
 			drawHeader(biP.header, biP.id);
 			
+			//1 for state, 0 for market
 			[0,1].forEach(function(p){			
 				d3.select("#"+biP.id)
 					.select(".part"+p)

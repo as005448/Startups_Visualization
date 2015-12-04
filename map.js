@@ -8,6 +8,13 @@ var svg = d3.select(".scatterplot").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+function validData(datum) {
+              return (datum["founded_year"] != null
+                                &&datum["founded_year"] != 0
+                                && datum["funding_total_usd"] != ' -   '
+                                && datum["market"] != null);
+            }
+
 d3.csv("Funding.csv", function(error, csv) {
 
         var dataset = {};
@@ -46,11 +53,60 @@ d3.csv("Funding.csv", function(error, csv) {
         });
         
         
-        //manipulate data
+        //top10
+        var thedata = csv;
+
+        thedata = thedata.filter(validData);
+
+        var companies;
+
+       companies=d3.nest()
+            .key(function(d) {return d.state_code;})
+            //.key(function(d) {return parseFloat(d.funding_total_usd);})
+            // .sortKeys(d3.descending)
+            .sortValues(function(a,b) { return ((parseFloat(a["funding_total_usd"]) > parseFloat(b["funding_total_usd"]))
+            ? -1
+            : 1);
+            return 0;})
+            .entries(thedata);
+        console.log(companies);
+             
           
 
         var map = new Datamap({
             element: document.getElementById('container'),
+            done: function(datamap) {
+            datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                var index = -1;
+                for (var i = 0; i <= 50; i++) {
+                    if (stateTable[i] == geography.id) {
+                        index = i;
+                    }
+                }
+                    bP.selectSegment(bpdata, 1, index);
+
+                    var topList;
+                    var l = -1;
+                    
+                    for (var i = 0; i < companies.length; i++) {
+                        if (companies[i].key == geography.id) {
+                            topList = companies[i].values;
+                            l = topList.length;
+                        }
+                    }
+                    document.getElementById("top1").innerHTML = topList[0].name;
+                    document.getElementById("top2").innerHTML = topList[1].name;
+                    document.getElementById("top3").innerHTML = topList[2].name;
+                    document.getElementById("top4").innerHTML = topList[3].name;
+                    document.getElementById("top5").innerHTML = topList[4].name;
+                    document.getElementById("top6").innerHTML = topList[5].name;
+                    document.getElementById("top7").innerHTML = topList[6].name;
+                    document.getElementById("top8").innerHTML = topList[7].name;
+                    document.getElementById("top9").innerHTML = topList[8].name;
+                    document.getElementById("top10").innerHTML = topList[9].name;
+                    
+                });
+            },
             scope: 'usa',
             fills: colorSet,
             // fills: { defaultFill: '#F5F5F5'},

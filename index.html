@@ -1,9 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<link rel = "stylesheet" href = "styles.css">
+<link href='style.css' rel='stylesheet' type='text/css'>
 
-
+ <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+        <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        
 <body>
     <div class = "wrap">
         <!-- div for title of our system -->
@@ -13,72 +17,79 @@
         </div>
 
         <!-- div for map -->
-        <div class = "map"></div>
+        <div class = "map">
+                <div id = "timeSilder" style = "width: 320px; padding:25px">
+                      <label for="nRadius" 
+                        style="display: inline-block; width: 120px; text-align: left">
+                         Found from <span id="nRadius-value">1990</span>
+                      </label>
+
+                     <input type="range" value = "1990" min="1980" max="2015" id="nRadius">
+
+                     <p>&nbsp; 
+
+                     <svg height="30" width="400">
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop offset="0%" style="stop-color: #feb24c;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#800026;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="300" height="30" fill="url(#grad1)" padding = "25px"/>
+                    </svg>
+                    
+                    <div>
+                        <span style = "padding-right: 1em">15</span>
+                        <span style = "padding-right: 1em">50</span>
+                        <span style = "padding-right: 1em">100</span>
+                        <span style = "padding-right: 1em">250</span>
+                        <span style = "padding-right: 1em">700</span>
+                        <span style = "padding-right: 1.5em">1500</span>10000
+                    </div>
+                </div>
+
+                <div id="container" style="width: 520px; height: 420px;"></div>
+        </div>
         <!-- div for top ten label -->
         <div class = "topTen_label">
-            <h3>Total Funding of Top Ten Startups</h3>
-            <h3 id = "variableName"><table style="width:100%">
-                            <tr><td>Ranking</td><td>Company Name</td><td>Website</td><td>Total Funding</td></tr></table></h3>
+                 <div class="nutrition-label">
+                <h1>Nutrition Facts</h1>
+                <h2 id="nutrition-label-name">Company Name</h2>
+                <table>
+                  <tr><td>TOP 1</td><td id="top1"></td></tr>
+                  <tr><td>TOP 2</td><td id="top2"></td></tr>
+                  <tr><td>TOP 3</td><td id="top3"></td></tr>
+                  <tr><td>TOP 4</td><td id="top4"></td></tr>
+                  <tr><td>TOP 5</td><td id="top5"></td></tr>
+                  <tr><td>TOP 6</td><td id="top6"></td></tr>
+                  <tr><td>TOP 7</td><td id="top7"></td></tr>
+                  <tr><td>TOP 8</td><td id="top8"></td></tr>
+                  <tr><td>TOP 9</td><td id="top9"></td></tr>
+                  <tr><td>TOP 10</td><td id="top10"></td></tr>
+                </table>
+                <br/>
+                <p id="nutrition-label-manufacturer">Manufacturer</p>
+                <p>AHFP: American Home Food Products</p>
+              </div>
 
         </div>
         <!-- div for bipartite -->
-        <div class = "bipartite"></div>
+        <!-- <div class = "bipartite"></div> -->
     </div>
  
         <!-- Extenal .js libraries -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-        <script src="//datamaps.github.io/scripts/datamaps.all.min.js"></script>
-        <script src="http://d3js.org/d3.v3.min.js"></script>
+       
         
 
 
         <!-- .js files -->
-        <script src="map.js"></script>
-        <script src="biPartite.js"></script>
-        
-
-
-        <div id = "timeSilder" style = "width: 320px; padding:25px">
-          <label for="nRadius" 
-            style="display: inline-block; width: 120px; text-align: left">
-             Found from <span id="nRadius-value">1990</span>
-          </label>
-
-         <input type="range" value = "1990" min="1980" max="2015" id="nRadius">
-
-         <p>&nbsp; 
-
-         <svg height="30" width="400">
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color: #feb24c;stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:#800026;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <rect width="300" height="30" fill="url(#grad1)" padding = "25px"/>
-        </svg>
-        
-        <div>
-            <span style = "padding-right: 1em">15</span>
-            <span style = "padding-right: 1em">50</span>
-            
-            <span style = "padding-right: 1em">100</span>
-            <span style = "padding-right: 1em">250</span>
-            <span style = "padding-right: 1em">700</span>
-            <span style = "padding-right: 1.5em">1500</span>10000
-        </div>
-        
-
-        </div>
-
-        <div id="container" style="position: relative; width: 1024px; height: 600px;"></div>
-
-    </div>
-
     
-
+    <script src="biPartite.js"></script>
     <script>
+    //bpdata will be use to map for linking
+
+    var bpdata;
+    var stateTable;
         d3.csv("Top10.csv", function(error, csv) {
             var indata = [];
             var i = 0;
@@ -86,20 +97,26 @@
                 indata[i] = [csv[i]["Market"], csv[i]["state_code"], +csv[i]["Count_of_market"], 0];
                 i++;
             })
-            console.log(indata);
-            console.log(i);
             var width = 1100, height = 1000, margin ={b:0, t:40, l:170, r:50};
 
             var svg = d3.select("body")
-                .append("svg").attr('width',width).attr('height',(height+margin.b+margin.t))
+                .append("svg")
+                .attr("class", "biPartite")
+                .attr('width',width).attr('height',(height+margin.b+margin.t))
                 .append("g").attr("transform","translate("+ margin.l+","+margin.t+")");
 
-            var data = [ 
-                {data:bP.partData(indata,2), id:'SalesAttempts', header:["Market","State", "Company by Market"]}
+            var usedata = bP.partData(indata,2);
+            stateTable = usedata.keys[1];
+            bpdata = [ 
+                {data:usedata, id:'SalesAttempts', header:["Market","State", "Company by Market"]}
             ];
+            ////
 
-            bP.draw(data, svg);
+
+            bP.draw(bpdata, svg);
         })   
     </script>
+    <script src="map.js"></script>
+        
     </body>
 </html>
