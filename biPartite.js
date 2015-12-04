@@ -1,7 +1,8 @@
 !function(){
 	var bP={};	
-	var b=30, bb=150, height=600, buffMargin=1, minHeight=14;
-	var c1=[-130, 40], c2=[-50, 100], c3=[-10, 140]; //Column positions of labels.
+	var b=30, bb=230 /*150*/, height=1000/*600*/, buffMargin=3, minHeight=13;
+	var c1=[-130, 40 + 80], c2=[30/*-50*/, 120 + 80], c3=[70/*-10*/, 160 + 80]; //Column positions of labels.
+	//add more color
 	var colors =["#3366CC", "#DC3912",  "#FF9900","#109618", "#990099", "#0099C6", "#a53623", "#6fa5f5", "#bd95d8","#aa9967" ];
 	
 	bP.partData = function(data,p){
@@ -20,7 +21,7 @@
 			sData.data[0][sData.keys[0].indexOf(d[0])][sData.keys[1].indexOf(d[1])]=d[p];
 			sData.data[1][sData.keys[1].indexOf(d[1])][sData.keys[0].indexOf(d[0])]=d[p]; 
 		});
-		
+		 
 		return sData;
 	}
 	
@@ -136,7 +137,8 @@
 		d3.select("#"+id).select(".part"+p).select(".subbars")
 			.selectAll(".subbar").data(data.subBars[p]).enter()
 			.append("rect").attr("class","subbar")
-			.attr("x", 0).attr("y",function(d){ return d.y})
+			//////////////////////////changed
+			.attr("x", 80/*0*/).attr("y",function(d){ return d.y})
 			.attr("width",b).attr("height",function(d){ return d.h})
 			.style("fill",function(d){ return colors[d.key1];});
 	}
@@ -171,7 +173,8 @@
 	}
 	
 	function edgePolygon(d){
-		return [0, d.y1, bb, d.y2, bb, d.y2+d.h2, 0, d.y1+d.h1].join(" ");
+		var offset = 80;
+		return [0 + offset, d.y1, bb + offset, d.y2, bb + offset, d.y2+d.h2, 0 + offset, d.y1+d.h1].join(" ");
 	}	
 	
 	function transitionPart(data, id, p){
